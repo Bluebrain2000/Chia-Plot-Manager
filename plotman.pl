@@ -50,7 +50,7 @@ while(1) {
 	for(1..$plots) {
 		$chia_checkbox[$_]=" ";
 	}
-	$ret=`pslist64.exe -nobanner chia`;
+	$ret=`pslist.exe -nobanner chia`;
 	foreach(split(/\n/,$ret)) {
 		if($_=~/^chia(\d?)\s+(\d+)/) {
 			$chia_pid[$1]=$2;
