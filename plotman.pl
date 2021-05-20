@@ -1,5 +1,8 @@
 # Chia Plotman
 # v0.2 2021-05-18
+# by Richard Mastny a.k.a. Bluebrain
+# https://github.com/Bluebrain2000/Chia-Plot-Manager
+# license: GPL
 $|=1;
 system("cls");
 print "\e[?25l"; # hide the cursor
