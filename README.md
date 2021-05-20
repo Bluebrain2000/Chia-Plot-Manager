@@ -30,3 +30,6 @@ Edit plotman.conf.pl to your needs.
 
 start the Plot Manager with:
 perl plotman.pl
+
+## License
+[GPL](https://www.gnu.org/licenses/gpl-3.0.html)
