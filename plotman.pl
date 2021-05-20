@@ -142,7 +142,7 @@ while(1) {
 					$Dm="0".$Dm if($Dm<10);
 					$age_text=($Dd*24 + $Dh).":$Dm:$Ds";
 				}
-				last if(!$age || $age>10);
+				last if(!$age || $age>$age_dead);
 			}
 
 			if($_=~/^ID: (.+)$/) {
@@ -193,7 +193,7 @@ while(1) {
 		}
 		close(LOGFILE);
 		
-		if(!$finished && $age<10) {
+		if(!$finished && $age<$age_dead) {
 			$age_unix_youngest=$age_unix if($age_unix<$age_unix_youngest);
 			$age[$plotter_id]=$age;
 			if($phase==1 && $table<$phase1_table) {
