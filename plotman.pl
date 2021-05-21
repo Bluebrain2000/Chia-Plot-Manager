@@ -277,6 +277,7 @@ while(1) {
 		$c++;
 	}
 
+	print color 'reset';
 	for(1..4) {
 		print "in phase $_: $inPhase[$_] ";
 		for(1..$inPhase[$_]) { print "#"; }
@@ -430,29 +431,29 @@ sub calculate_timings {
 		last if($c==$check_last);
 	}
 
-	$age_unix_threshold=int($total_time_total/$check_last/$plots);
+	$age_unix_threshold=int($total_time_total/$c/$plots);
 	if($age_unix_threshold_override) {
 		$age_unix_threshold=$age_unix_threshold_override;
 		undef $age_unix_threshold_override;
 	}
-	$total_time=int($total_time_total/$check_last);
-	$copy_time=int($copy_time_total/$check_last);
+	$total_time=int($total_time_total/$c);
+	$copy_time=int($copy_time_total/$c);
 	$ppd=sprintf('%.1f',(24*3600/$total_time*$plots));	# ppd = "plots per day"
 	print color "bright_magenta";
 	print "AVERAGE:\n";
 	for(1..4) {
-		print "phase $_:".int($phase_time[$_]/$check_last)."  ";
+		print "phase $_:".int($phase_time[$_]/$c)."  ";
 	}
 	print "\n";
 	print "total: $total_time sec., 1/$plots: $age_unix_threshold sec., copy:$copy_time sec., $ppd ppd\n";
 	print "P1: ";
 	for(1..7) {
-		$tt[$_]=int($tt_total[$_]/$check_last);
+		$tt[$_]=int($tt_total[$_]/$c);
 		print "[T$_]:$tt[$_] ";
 	}
 	print "\n\n";
 	for(1..4) {
-		$ptu[$_]=sprintf('%.0f',$phase_time[$_]/$check_last/$copy_time);
+		$ptu[$_]=sprintf('%.0f',$phase_time[$_]/$c/$copy_time);
 	}
 	print color "bright_yellow";
 	print "plot time units: $ptu[1] $ptu[2] $ptu[3] $ptu[4]\n";
