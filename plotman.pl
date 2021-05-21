@@ -288,7 +288,7 @@ while(1) {
 	$Dm="0".$Dm if($Dm<10);
 	$Ds="0".$Ds if($Ds<10);
 	if($age_unix_threshold-$age_unix_youngest < 0) {
-		print "next start in: waiting for plot to finish\n";
+		print "next start in: waiting for plot to finish\n" if($chias>=$plots);
 	} else {
 		print "next start in: $Dh"."h $Dm"."m $Ds"."s\n";
 	}
