@@ -358,8 +358,8 @@ sub calculate_timings {
 	$ret=`dir /OD /TC /4 $logpath\\plot*.txt`;	# files only, sorted by date
 	@line=split(/\n/,$ret);
 	foreach(@line) {
-		if($_=~/plot_q(.*?)\.txt/) {
-			$filename="plot_q".$1.".txt";
+		if($_=~/plot(.*?)\.txt/) {
+			$filename="plot".$1.".txt";
 			push(@logfiles,$filename);
 		}
 	}
